@@ -33,12 +33,12 @@ VALIDATE(){
 
 CHECK_USER
 
-dnf install mysql-server -y
+dnf install mysql-server -y &>> $logFile
 VALIDATE $? "Installing mysql-server"
 
-systemctl enable mysqld
+systemctl enable mysqld &>> $logFile
 VALIDATE $? "Enableing mysql"
 
-systemctl start mysqld
+systemctl start mysqld &>> $logFile
 VALIDATE $? "Staring mysql"
 
